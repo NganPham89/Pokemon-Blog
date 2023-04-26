@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Comment } = require("../../models/index");
+const { Comment, User } = require("../../models/index");
 const withAuth = require("../../utils/auth");
 
 router.get("/", async (req, res) => {
@@ -8,6 +8,30 @@ router.get("/", async (req, res) => {
         res.status(200).json(commentData);
     } catch (err) {
         res.status(400).json(err);
+    }
+});
+
+router.get("/:id", async (req, res) => {
+    try {
+        const commentData = await Comment.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: {
+                        exclude: ["password"],
+                    }
+                }
+            ]
+        });
+
+        if (!commentData) {
+            res.status(400).json({message: "There's no comment with that id"});
+            return;
+        }
+
+        res.status(200).json(commentData);
+    } catch (err) {
+        res.status(500).json(err);
     }
 });
 
