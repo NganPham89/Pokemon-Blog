@@ -36,8 +36,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-//add withAuth after test
-router.post("/", withAuth, async (req, res) => {
+router.post("/", async (req, res) => {
     try {
         const blogData = await Blog.create({
             ...req.body,
