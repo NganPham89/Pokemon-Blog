@@ -103,14 +103,6 @@ router.get("/blog-edit/:id", async (req, res) => {
     }
 })
 
-router.get("/comment", async (req, res) => {
-    try {
-        res.render("comment");
-    } catch (err) {
-        res.status(400).json(err);
-    }
-})
-
 router.get("/login", (req, res) => {
     if (req.session.logged_in) {
         res.redirect("/dashboard");

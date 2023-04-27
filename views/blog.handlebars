@@ -6,18 +6,29 @@
     <div class="blog-button-list">
         <button onclick="location.href='/blog-edit/{{id}}'" type="button">Edit</button>
         <button data-delete-id="{{id}}">Delete</button>
-        <button>Comment</button>
+    </div>
+    <div>
+        <h3>Post a Comment:</h3>
+        <form class="form new-comment-form">
+            <div class="form-group">
+                <label for="comment-content">content:</label>
+                <textarea class="form-input" id="comment-content" name="comment-content"></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary comment-btn" data-blog-id="{{id}}">Post</button>
+            </div>
+        </form>
     </div>
     {{/if}}
 </div>
 
-{{#each comments as |comment|}}
-<div>
+<div class="comment-list">
+    {{#each comments as |comment|}}
     <p>{{comment.content}}</p>
     <p>Posted by {{comment.user.name}} on {{format_date comment.date_created}}</p>
     <button>Edit</button>
-    <button>Delete</button>
+    <button data-comment-id="{{comment.id}}">Delete</button>
+    {{/each}}
 </div>
-{{/each}}
 
 <script src="/js/deleteblog.js"></script>
