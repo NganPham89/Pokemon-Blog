@@ -49,13 +49,11 @@ router.post("/", async (req, res) => {
     }
 });
 
-//add withAuth after test
-router.put("/:id", withAuth, async (req, res) => {
+router.put("/:id", async (req, res) => {
     try {
         const blogData = await Blog.update(req.body, {
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id,
             }
         });
 
@@ -73,8 +71,7 @@ router.put("/:id", withAuth, async (req, res) => {
     }
 })
 
-//add withAuth after test
-router.delete("/:id", withAuth, async (req, res) => {
+router.delete("/:id", async (req, res) => {
     try {
         const blogData = await Blog.destroy({
             where: {

@@ -19,21 +19,4 @@ const addBlogHandler = async (event) => {
     }
 };
 
-const deleteHandler = async (event) => {
-    if (event.target.hasAttribute("data-id")) {
-        const id = event.target.getAttribute("data-id");
-
-        const response = await fetch(`/api/projects/${id}`, {
-            method: "DELETE",
-        });
-
-        if (response.ok) {
-            document.location.replace("/profile");
-        } else {
-            alert("Failed to delete project");
-        }
-    }
-};
-
 document.querySelector(".new-blog-form").addEventListener("submit", addBlogHandler);
-document.querySelector(".project-list").addEventListener("click", deleteHandler);
