@@ -36,7 +36,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
     try {
         const blogData = await Blog.create({
             ...req.body,
@@ -49,7 +49,7 @@ router.post("/", async (req, res) => {
     }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", withAuth, async (req, res) => {
     try {
         const blogData = await Blog.update(req.body, {
             where: {
@@ -72,7 +72,7 @@ router.put("/:id", async (req, res) => {
     }
 })
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
     try {
         const blogData = await Blog.destroy({
             where: {
