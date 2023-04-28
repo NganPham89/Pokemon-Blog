@@ -3,7 +3,7 @@ A CMS-Style blog site where Pokemon enthusiasts can publish and comment on other
 
 ![MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
-A link to the deployed site can be found [here](https://drive.google.com/file/d/11a1-Cj32JJUF0RVaaQaYw1MOuA8rxwIT/view)
+A link to the deployed site can be found [here](https://serene-savannah-81047.herokuapp.com/)
 
 ## Screenshot
 
