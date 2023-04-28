@@ -35,7 +35,6 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-//add withAuth after test
 router.post("/", async (req, res) => {
     try {
         const commentData = await Comment.create({
@@ -49,13 +48,12 @@ router.post("/", async (req, res) => {
     }
 });
 
-//add withAuth after test
 router.put("/:id", async (req, res) => {
     try {
         const commentData = await Comment.update(req.body, {
             where: {
                 id: req.params.id,
-                // user_id: req.session.user_id,
+                user_id: req.session.user_id,
             }
         });
 
@@ -73,14 +71,12 @@ router.put("/:id", async (req, res) => {
     }
 })
 
-//add withAuth after test
 router.delete("/:id", async (req, res) => {
     try {
         const commentData = await Comment.destroy({
             where: {
                 id: req.params.id,
-                // blog_id: blabllalala,
-                // user_id: req.session.user_id,
+                user_id: req.session.user_id,
             },
         });
 

@@ -10,7 +10,7 @@ const addCommentHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace("/dashboard");
+            document.location.replace(`/blog/${blog_id}`);
         } else {
             alert("Failed to post a new comment");
         }
@@ -27,11 +27,11 @@ const deleteCommentHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace("/dashboard");
+            document.location.replace(`/`);
         } else {
-            alert("Failed to delete comment");
+            alert("Not authorized to delete this comment");
         }
     }
 };
 
-document.querySelector(".comment-del-btn").addEventListener("click", deleteCommentHandler);
+document.querySelector(".comment-list").addEventListener("click", deleteCommentHandler);

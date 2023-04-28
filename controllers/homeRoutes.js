@@ -93,10 +93,33 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 router.get("/blog-edit/:id", async (req, res) => {
     try {
-        const blogData = await Blog.findByPk(req.params.id)
+        const blogData = await Blog.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: {
+                        exclude: ["password"],
+                    }
+                }
+            ]
+        });
         const blog = blogData.get({ plain: true });
         res.render("blog-edit", {
             ...blog,
+            logged_in: req.session.logged_in,
+        })
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
+
+router.get("/comment-edit/:id", async (req, res) => {
+    try {
+        const commentData = await Comment.findByPk(req.params.id);
+        const comment = commentData.get({ plain: true });
+        res.render("comment-edit", {
+            ...comment,
+            logged_in: req.session.logged_in,
         })
     } catch (err) {
         res.status(400).json(err);

@@ -12,13 +12,13 @@ const updateBlogHandler = async (event) => {
             });
 
             if (response.ok) {
-                document.location.replace("/dashboard");
+                document.location.replace(`/blog/${id}`);
             } else {
-                alert("Failed to update blog post");
+                alert("Not authorized to edit this post");
             }
         }
     }
 
 };
 
-document.querySelector(".blog-delete-button").addEventListener("click", updateBlogHandler);
+document.querySelector(".blog-edit-button").addEventListener("click", updateBlogHandler);

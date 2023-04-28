@@ -54,6 +54,7 @@ router.put("/:id", async (req, res) => {
         const blogData = await Blog.update(req.body, {
             where: {
                 id: req.params.id,
+                user_id: req.session.user_id,
             }
         });
 
@@ -89,7 +90,10 @@ router.delete("/:id", async (req, res) => {
             message: "Blog has been successfully deleted",
         });
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json({
+            err,
+            message: "Not authorized to delete or edit this post"
+        });
     }
 });
 

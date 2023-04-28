@@ -1,0 +1,30 @@
+body {
+    background-color: #f6d294;
+}
+
+.bg-pastel {
+    background-color: #faaad0;
+}
+
+.small-font {
+    font-size: 85%;
+}
+
+header {
+    border-bottom: 1px solid #ccc;
+}
+
+.no-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #1b89bc;
+    text-decoration: none;
+    font-size: 100%;
+}
+
+.no-button:hover {
+    color: #065b83;
+    text-decoration: underline;
+}

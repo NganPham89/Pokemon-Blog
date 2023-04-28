@@ -1,15 +1,16 @@
-<div>
-    <h3>Edit Your Post:</h3>
-    <form class="form new-blog-form">
+<h3 class="m-5">{{user.name}}, edit your post here:</h3>
+
+<div class="m-5">
+    <form class="form new-blog-form p-5 w-25">
         <div class="form-group">
             <label for="blog-title">Blog Title:</label>
-            <input class="form-input" type="text" id="blog-title" name="blog-title" placeholder="{{title}}"/>
+            <input class="form-input" type="text" id="blog-title" name="blog-title" placeholder="{{title}}" />
         </div>
         <div class="form-group">
             <label for="blog-content">Content:</label>
             <textarea class="form-input" id="blog-content" name="blog-content" placeholder="{{content}}"></textarea>
         </div>
-        <div class="form-group blog-delete-button">
+        <div class="form-group blog-edit-button pt-2">
             <button class="btn btn-primary" data-edit-id="{{id}}">Submit Edit</button>
         </div>
     </form>
