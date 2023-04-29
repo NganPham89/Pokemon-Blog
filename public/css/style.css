@@ -28,3 +28,13 @@ header {
     color: #065b83;
     text-decoration: underline;
 }
+
+@media only screen and (max-width: 768px ) {
+    .login-container,
+    .signup-container,
+    .new-blog-form,
+    .submit-comment,
+    .new-comment-form {
+        width: 90%;
+    }
+}

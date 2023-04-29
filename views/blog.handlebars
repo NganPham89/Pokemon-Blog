@@ -11,7 +11,7 @@
             <button class="btn btn-danger" data-delete-id="{{id}}">Delete</button>
         </div>
         {{/if}}
-        <div class="m-5 w-25">
+        <div class="submit-comment m-5 w-25">
             <form class="form new-comment-form">
                 <div class="form-group">
                     <label for="comment-content">
@@ -23,7 +23,7 @@
                     {{#if logged_in}}
                     <button class="btn btn-primary comment-btn" data-blog-id="{{id}}">Post</button>
                     {{else}}
-                    <a href="/login">Login or Signup</a> to post and edit comments
+                    <a href="/login">Login or Signup</a> to post and/or edit comments
                     {{/if}}
                 </div>
             </form>
